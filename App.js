@@ -8,8 +8,12 @@ import {
   MessageList,
   MessageInput,
 } from "stream-chat-expo";
+import JWT from 'expo-jwt';
 
-const chatClient = new StreamChat('35q8ywpvzf4q');
+
+const token_stuff = 'ah9qw825keenrgbqndkxr45zg4aja2dkzqt3kvtdxk64wr4ewud3anauzaqzrje4';
+
+const chatClient = new StreamChat('35q8ywpvzf4q', `{{ ${token_stuff} }}`);
 
 const userToken =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiY3JpbXNvbi1raW5nLTcifQ.tN8QY6_PlF4mkeqXRhgMlbyBeGaVgLlQc4Jah9MA1ss';
@@ -20,6 +24,9 @@ const user = {
   image:
     'https://s.gravatar.com/avatar/80054b7e4277b1c1d56aea8714ae48c2?s=80',
 };
+
+//chatClient.setUser(user, userToken);
+
 {/*
 const userToken =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibW9ybmluZy1zZWEtOCJ9.9gqHEafvIUou2rzNkl6kuEqaxk-WnL-ELTJ0QF1nLZA';
@@ -31,20 +38,20 @@ const user = {
     'https://stepupandlive.files.wordpress.com/2014/09/3d-animated-frog-image.jpg',
 };
 
-const token = chatClient.createToken("jon-snow");
+*/}
+
+const token = JWT.encode({
+  "user_id": "jon-snow"
+}, token_stuff, { algorithm: 'HS256' });
+
 chatClient.setUser({
   id: "jon-snow",
   name: "Jon Snow",
   image: "https://bit.ly/2u9Vc0r",
 }, token); // token generated server side
 
-console.log(chatClient);
 // code for generating new users!
 // we could do this with the spotify id ?!
-
-*/}
-
-chatClient.setUser(user, userToken);
 
 const playlistId = '37i9dQZF1E4p6kkzq7jY43';
 const albumId = '1Fp7KUob6eXag90SkbBbnU'
