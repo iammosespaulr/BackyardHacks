@@ -8,7 +8,7 @@ import {
   MessageList,
   MessageInput,
 } from "stream-chat-expo";
-import JWT from 'expo-jwt';
+
 import { AuthSession } from 'expo';
 import { AsyncStorage } from 'react-native';
 
@@ -17,8 +17,8 @@ const scopesArr = ['user-modify-playback-state', 'user-read-currently-playing', 
   'user-library-read', 'playlist-read-private', 'playlist-read-collaborative', 'playlist-modify-public',
   'playlist-modify-private', 'user-read-recently-played', 'user-top-read'];
 const scopes = scopesArr.join(' ');
+
 const credsB64 = btoa(`b7faffeb82e54c01bd8ff7626ff91a00:5d30aab12cbd4746aee1f173e3fbcac8`);
-const creds = {}
 const clientId = 'b7faffeb82e54c01bd8ff7626ff91a00';
 
 async function setUserData(a, b) {
@@ -66,7 +66,6 @@ import { encode as btoa } from 'base-64';
 const getTokens = async () => {
   try {
     const authorizationCode = await getAuthorizationCode() //we wrote this function above
-    const credsB64 = btoa(`b7faffeb82e54c01bd8ff7626ff91a00:5d30aab12cbd4746aee1f173e3fbcac8`);
     const response = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
@@ -168,6 +167,7 @@ export const getUserPlaylists = async () => {
 const token_stuff = 'ah9qw825keenrgbqndkxr45zg4aja2dkzqt3kvtdxk64wr4ewud3anauzaqzrje4';
 
 const chatClient = new StreamChat('35q8ywpvzf4q', `{{ ${token_stuff} }}`);
+
 const userToken =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiY3JpbXNvbi1raW5nLTcifQ.tN8QY6_PlF4mkeqXRhgMlbyBeGaVgLlQc4Jah9MA1ss';
 
@@ -178,9 +178,10 @@ const user = {
     'https://s.gravatar.com/avatar/80054b7e4277b1c1d56aea8714ae48c2?s=80',
 };
 
-//chatClient.setUser(user, userToken);
+chatClient.setUser(user, userToken);
 
 {/*
+
 const userToken =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibW9ybmluZy1zZWEtOCJ9.9gqHEafvIUou2rzNkl6kuEqaxk-WnL-ELTJ0QF1nLZA';
 
@@ -191,7 +192,7 @@ const user = {
     'https://stepupandlive.files.wordpress.com/2014/09/3d-animated-frog-image.jpg',
 };
 
-*/}
+import JWT from 'expo-jwt';
 
 const token = JWT.encode({
   "user_id": "jon-snow"
@@ -205,6 +206,8 @@ chatClient.setUser({
 
 // code for generating new users!
 // we could do this with the spotify id ?!
+
+*/}
 
 const playlistId = '37i9dQZF1E4p6kkzq7jY43';
 const albumId = '1Fp7KUob6eXag90SkbBbnU'
