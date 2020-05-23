@@ -5,10 +5,9 @@ import {
   View,
   Button,
   TextInput,
-  AsyncStorage,
   TouchableHighlight
 } from 'react-native';
-
+import { AsyncStorage } from 'react-native';
 class LoginScreen extends React.Component {
   static navigationOptions = {
     title: 'LoginScreen',
@@ -41,6 +40,7 @@ class LoginScreen extends React.Component {
 
 
   saveUserId = async userId => {
+    console.log("Save Works!")
     try {
       await AsyncStorage.setItem('userId', JSON.stringify(userId));
     } catch (error) {
@@ -61,6 +61,7 @@ class LoginScreen extends React.Component {
   };
 
   onSubmitFuction = () => {
+    console.log('Submit Works!')
     if(this.state.text) {
       //AsyncStorage.setItem('USER_ID', this.state.text);
 
