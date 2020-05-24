@@ -43,13 +43,6 @@ app.get('/', (req, res) => res.send('Hello! This is the MongoDB server for Fires
 app.use('/api', apiRoutes);
 
 // Launch app to listen to specified port
-https
-    .createServer({
-            key: fs.readFileSync('server.key'),
-            cert: fs.readFileSync('server.cert')
-        },
-        app
-    )
-    .listen(port, function() {
-        console.log('Running Fireside Party Server on port ' + port);
-    });
+app.listen(port, function() {
+    console.log('Running Fireside Party Server on port ' + port);
+});
