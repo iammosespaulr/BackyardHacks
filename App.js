@@ -136,7 +136,7 @@ export async function Login() {
     } else {
         await setUserData('accessTokenAvailable', true);
     }
-    return true
+    return true;
 }
 
 import SpotifyWebAPI from 'spotify-web-api-js';
@@ -153,6 +153,32 @@ export const getValidSPObj = async() => {
     return sp;
 };
 
+export const addUser = async() => {
+    const sp = await getValidSPObj();
+    const id = await sp.getMe();
+    const response = await fetch('localhost:4000/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: {
+            spotify_id: id.id,
+            email: id.email,
+            display_name: id.display_name,
+            country: id.country
+        }
+    });
+    const responseJson = await response.json();
+    return responseJson;
+};
+
+export const getUserId = async() => {
+    const sp = await getValidSPObj();
+    const id = await sp.getMe();
+    console.log(id);
+    return id;
+};
+
 export const getUserPlaylists = async() => {
     const sp = await getValidSPObj();
     const { id: userId } = await sp.getMe();
@@ -167,21 +193,21 @@ export const getUserCurrentPlayBack = async() => {
 };
 
 export const getUserDeviceId = async() => {
-  const sp = await getValidSPObj();
-  const playback = await sp.getMyDevices();
-  console.log(playback);
-  return playback;
+    const sp = await getValidSPObj();
+    const playback = await sp.getMyDevices();
+    console.log(playback);
+    return playback;
 };
 
 export const Play = async() => {
-  const sp = await getValidSPObj();
-  sp.play({
-    "context_uri": "spotify:playlist:37i9dQZF1E4p6kkzq7jY43",
-    "offset": {
-      "position": 5
-    },
-    "position_ms": 0
-  });
+    const sp = await getValidSPObj();
+    sp.play({
+        context_uri: 'spotify:playlist:37i9dQZF1E4p6kkzq7jY43',
+        offset: {
+            position: 5
+        },
+        position_ms: 0
+    });
 };
 
 export const playPlayList = async() => {
