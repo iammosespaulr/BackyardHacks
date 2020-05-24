@@ -163,6 +163,13 @@ export const getUserCurrentPlayBack = async() => {
     return playback;
 };
 
+export const getUserDeviceId = async() => {
+  const sp = await getValidSPObj();
+  const playback = await sp.getMyDevices();
+  console.log(playback);
+  return playback;
+};
+
 export const Play = async() => {
   const sp = await getValidSPObj();
   sp.play({

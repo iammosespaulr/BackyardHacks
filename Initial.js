@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Text,
     TouchableHighlight,
-    View
+    View,
+    ImageBackground
 } from 'react-native';
 
 import {Login} from './App.js';
@@ -49,12 +50,18 @@ export default class InitialScreen extends PureComponent {
             </View >
             );
         } else {
-            return (<View style={styles.container}>
+            return (
+                <View style={styles.container}>
+
+                <ImageBackground
+                source={{ uri: `https://media.giphy.com/media/xUPGclNlLxRs6cVfW0/giphy.gif`,}}
+                style={{width: '100%', height: '100%'}}>
                 <Text style={styles.greeting}>
                     Fireside Partay! </Text>
                 <TouchableHighlight onPress={this.spotifyLoginButtonWasPressed} style={styles.spotifyLoginButton}>
                      <Text style={styles.spotifyLoginButtonText}> Log into Spotify </Text>
                 </TouchableHighlight>
+                </ImageBackground>
             </View>
             );
         }
@@ -87,6 +94,9 @@ const styles = StyleSheet.create({
         width: 250,
         height: 60,
         margin: 20,
+        marginLeft:60,
+        marginRight:60,
+        alignContent: 'center'
     },
     spotifyLoginButtonText: {
         fontSize: 25,
@@ -96,6 +106,7 @@ const styles = StyleSheet.create({
     },
 
     greeting: {
+        marginTop: 250,
         fontSize: 45,
         textAlign: 'center',
         color: 'green',

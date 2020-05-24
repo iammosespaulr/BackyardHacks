@@ -18,6 +18,7 @@ import {
   playPlayList,
   pausePlayList,
   seekPlayList,
+  getUserDeviceId,
 } from './App.js';
 
 const token_stuff =
@@ -64,6 +65,7 @@ async function gethis()
 {
     // a = await getUserCurrentPlayBack(); // Works
     // a = await getUserPlaylists(); // Works
+    // a = await getUserDeviceId(); // Works
     a = await Play();
     // a = await playPlayList();
     // a = await pausePlayList();
