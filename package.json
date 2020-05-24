@@ -21,6 +21,7 @@
     "react-native-reanimated": "~1.2.0",
     "react-native-web": "^0.11.7",
     "react-navigation": "3.2.1",
+    "rn-spotify-sdk": "^1.2.13",
     "stream-chat-expo": "^0.10.0"
   },
   "devDependencies": {

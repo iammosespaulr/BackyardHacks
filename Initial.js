@@ -82,27 +82,21 @@ export default class InitialScreen extends PureComponent {
 
     render() {
         if (!this.state.spotifyInitialized) {
-            return ( <
-                View style = { styles.container } >
-                <
-                ActivityIndicator animating = { true }
-                style = { styles.loadIndicator } >
-                <
-                /ActivityIndicator> <
-                Text style = { styles.loadMessage } >
-                Loading... <
-                /Text> < /
-                View >
+            return (<View style={styles.container}>
+                <ActivityIndicator animating={true}
+                    style={styles.loadIndicator}>
+                </ActivityIndicator>
+                <Text style={styles.loadMessage} >
+                    Loading... </Text> </View >
             );
         } else {
-            return ( < View style = { styles.container } >
-                <
-                Text style = { styles.greeting } >
-                Hey!You!Log into your spotify < /Text>  <
-                TouchableHighlight onPress = { this.spotifyLoginButtonWasPressed }
-                style = { styles.spotifyLoginButton }
-                /> <Text style = { styles.spotifyLoginButtonText }> Log into Spotify </Text > < /TouchableHighlight>  < /
-                View >
+            return (<View style={styles.container}>
+                <Text style={styles.greeting}>
+                    Hey!You!Log into your spotify </Text>
+                <TouchableHighlight onPress={this.spotifyLoginButtonWasPressed}
+                    style={styles.spotifyLoginButton}> <Text style={styles.spotifyLoginButtonText}> Log into Spotify </Text>
+                </TouchableHighlight>
+            </View>
             );
         }
     }
