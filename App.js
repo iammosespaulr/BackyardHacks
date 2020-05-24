@@ -25,7 +25,10 @@ const scopesArr = [
 const scopes = scopesArr.join(' ');
 
 const credsB64 = btoa(`b7faffeb82e54c01bd8ff7626ff91a00:5d30aab12cbd4746aee1f173e3fbcac8`);
-const clientId = 'b7faffeb82e54c01bd8ff7626ff91a00';
+const clientId = 'b7faffeb82e54c01bd8ff7626ff91a00'; // DQ's
+
+// const credsB64 = btoa(`466c291864774341a1780bc086782d47:f036d03b0e0b4904861d0fcfab0578be`);
+// const clientId = '466c291864774341a1780bc086782d47'; //( Mine )
 
 export async function setUserData(a, b) {
     try {

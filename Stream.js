@@ -99,25 +99,22 @@ class ChannelScreen extends React.Component {
               fontWeight: 'bold',
             }}
           >
-            Okay, So We're gonna have a Sync Music thingyy
+            Okay, This is gonna be a virtual Partayyy !
           </Text>
+          <TouchableOpacity onPress={() => {
+              Linking.openURL(`spotify://playlist/${playlistId}`);
+            }}>
           <Image
             style={{ width: 700, height: 60, resizeMode: 'contain' }}
             source={{
               uri: `https://scannables.scdn.co/uri/plain/png/${bgColor}/${fgColor}/640/spotify:playlist:${playlistId}.png`,
             }}
           />
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              Linking.openURL(`spotify://playlist/${playlistId}`);
-            }}
-          >
-            {/*
-          `android-app://com.spotify.music/spotify/playlist/${playlistId}`
-          `spotify://playlist/${playlistId}`
-          `spotify://album/${albumId}`
-          https://media.giphy.com/media/pNsBooBjruKnm/giphy.gif
-          */}
+                gethis()
+            }}>
             <Text
               style={{
                 fontSize: 20,
@@ -129,17 +126,35 @@ class ChannelScreen extends React.Component {
                 fontWeight: 'bold',
               }}
             >
-              Sync on Spotify
+              Sync Music !!
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/*<TouchableOpacity
             onPress={() => {
-                gethis()
-            }}>
-              <Text>
-                  Try This
-              </Text>
-          </TouchableOpacity>
+              Linking.openURL(`spotify://playlist/${playlistId}`);
+            }}
+          >
+            
+          `android-app://com.spotify.music/spotify/playlist/${playlistId}`
+          `spotify://playlist/${playlistId}`
+          `spotify://album/${albumId}`
+          https://media.giphy.com/media/pNsBooBjruKnm/giphy.gif
+          
+            <Text
+              style={{
+                fontSize: 20,
+                color: 'rgba(0,0,0, 1)',
+                lineHeight: 24,
+                textAlign: 'center',
+                paddingTop: 15,
+                paddingBottom: 15,
+                fontWeight: 'bold',
+              }}
+            >
+              Open on Spotify
+            </Text>
+          </TouchableOpacity>*/}
+
         </View>
 
         <Chat client={chatClient}>
