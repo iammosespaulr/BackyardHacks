@@ -127,16 +127,13 @@ export async function Login() {
     console.log(REDIRECT_URL);
     const tokenExpirationTime = await getUserData('expirationTime');
     console.log(tokenExpirationTime);
+
     if (!tokenExpirationTime || new Date().getTime() > tokenExpirationTime) {
         await refreshTokens();
     } else {
         await setUserData('accessTokenAvailable', true);
     }
-    res = await getUserData('accessTokenAvailable');
-    res1 = await getUserData('accessToken');
-    //res3 = await getUserPlaylists();
-
-    return res;
+    return true
 }
 
 import SpotifyWebAPI from 'spotify-web-api-js';
@@ -164,6 +161,17 @@ export const getUserCurrentPlayBack = async() => {
     const sp = await getValidSPObj();
     const playback = await sp.getMyCurrentPlaybackState();
     return playback;
+};
+
+export const Play = async() => {
+  const sp = await getValidSPObj();
+  sp.play({
+    "context_uri": "spotify:playlist:37i9dQZF1E4p6kkzq7jY43",
+    "offset": {
+      "position": 5
+    },
+    "position_ms": 0
+  });
 };
 
 export const playPlayList = async() => {
