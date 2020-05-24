@@ -54,7 +54,7 @@ export default class InitialScreen extends PureComponent {
                 <View style={styles.container}>
 
                 <ImageBackground
-                source={{ uri: `https://media.giphy.com/media/xUPGclNlLxRs6cVfW0/giphy.gif`,}}
+                source={{ uri: `https://media.giphy.com/media/g4Op234Q28w0TA8n56/giphy.gif`,}}
                 style={{width: '100%', height: '100%'}}>
                 <Text style={styles.greeting}>
                     Fireside Partay! </Text>
@@ -109,7 +109,10 @@ const styles = StyleSheet.create({
         marginTop: 250,
         fontSize: 45,
         textAlign: 'center',
-        color: 'white',
-        fontWeight: 'bold'
+        color: '#e25822',
+        fontWeight: 'bold',
+        textShadowColor:'black',
+        textShadowRadius:2,
+        textShadowOffset:{width: 2, height: 2},
     },
 });
